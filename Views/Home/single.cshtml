@@ -1,0 +1,60 @@
+﻿@model TestBlog2.Models.Comment
+
+@foreach (var Post in ViewBag.Post)
+{
+    <!-- Blog section -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-post single-post">
+                        <img src="~/img/blog/1.jpg" alt="">
+                        <div class="post-date">April 1, 2019</div>
+                        <h3>@Post.Title</h3>
+                        <div class="post-metas">
+                            <div class="post-meta">By <a href="#">@Post.User.Name</a></div>
+                            <div class="post-meta">In <a asp-action="categorysingle" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title </a></div>
+                            <div class="post-meta">@Post.Comments.Count Comments</div>
+                        </div>
+                        <p>@Post.Text</p>
+                        <div class="comments">
+                            <h5>Comments (@Post.Comments.Count)</h5>
+                            <ul class="comments-list">
+                                @foreach (var Comment in Post.Comments)
+                                {
+                                    <li>
+                                        <img src="~/img/@Comment.User.Image" alt="">
+                                        <div class="comment-text">
+                                            <h6>@Comment.User.Name<a href="#CommentArea" class="reply">Reply</a></h6>
+                                            <div class="comment-date">@Comment.CreatedDate.ToString("d MMM yyyy")</div>
+                                            <p>@Comment.Message</p>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <h5 id="CommentArea">Leave a comment</h5>
+                                <form asp-controller="home" asp-action="create" class="comment-form" method="post">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="hidden" asp-for="PostId" />
+                                            <textarea placeholder="Your message" asp-for="Message"></textarea>
+                                            <input type="submit" class="site-btn" value="Post Comment" />
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                <h3>You need to <a asp-controller="account" asp-action="login">Login</a> to leave a comment</h3>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("Sidebar"); 
+            </div>
+        </div>
+    </section>
+}
+<!-- Blog section end -->

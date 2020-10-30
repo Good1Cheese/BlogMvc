@@ -1,0 +1,47 @@
+﻿@using TestBlog2.Models
+@model IndexViewModel
+@addTagHelper *, TestBlog2
+<!-- Blog section -->
+<!-- Blog list section -->
+<section class="blog-list-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="small-blog-list">
+
+                    @foreach (var Post in Model.Posts)
+                    {
+                        <div class="sb-item">
+                            <img src="~/img/blog-thumbs/6.jpg" alt="">
+                            <div class="sb-text">
+                                <div class="sb-date">@Post.CreatedDate.ToString("d MMM yyyy")</div>
+                                <h6><a style="color:white;" asp-action="single" asp-route-id="@Post.Id" asp-controller="home">@Post.Title</a></h6>
+                                <div class="sb-metas">
+                                    <div class="sb-meta">By <a asp-action="user" asp-route-id="@Post.User.Id" asp-controller="account">@Post.User.Name</a></div>
+                                    <div class="sb-meta">in <a asp-action="categorysingle" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title</a></div>
+                                    <div class="sb-meta">@Post.Comments.Count Comments</div>
+                                </div>
+                                <p>@Post.Text dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo.</p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sb-widget">
+                    <div class="latest-news-widget top-five">
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 30px;">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <page-link page-model="Model.PageViewModel" page-action="CategorySingleAsync"></page-link>
+                    </ul>
+                </nav>color:#ffea00;
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog list section end -->
