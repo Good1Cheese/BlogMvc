@@ -1,26 +1,26 @@
-﻿@model TestBlog2.Models.Comment
+﻿@model BlogMvc.Models.Comment
 
-@foreach (var Post in ViewBag.Post)
+@foreach (Post Post in ViewBag.Post)
 {
     <!-- Blog section -->
     <section class="blog-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="blog-post single-post">
+                    <div class="blog-post single-post"> 
                         <img src="~/img/blog/1.jpg" alt="">
                         <div class="post-date">April 1, 2019</div>
                         <h3>@Post.Title</h3>
                         <div class="post-metas">
                             <div class="post-meta">By <a href="#">@Post.User.Name</a></div>
-                            <div class="post-meta">In <a asp-action="categorysingle" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title </a></div>
+                            <div class="post-meta">In <a asp-action="singleCategoryAsync" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title </a></div>
                             <div class="post-meta">@Post.Comments.Count Comments</div>
                         </div>
                         <p>@Post.Text</p>
                         <div class="comments">
                             <h5>Comments (@Post.Comments.Count)</h5>
                             <ul class="comments-list">
-                                @foreach (var Comment in Post.Comments)
+                                @foreach (Comment Comment in Post.Comments)
                                 {
                                     <li>
                                         <img src="~/img/@Comment.User.Image" alt="">

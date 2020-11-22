@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TestBlog2.Models;
-using AppContext = TestBlog2.Data.AppContext;
+using BlogMvc.Models;
+using AppContext = BlogMvc.Data.AppContext;
 
-namespace TestBlog2
+namespace BlogMvc
 {
     public class Startup
     {
@@ -30,6 +30,7 @@ namespace TestBlog2
                 .AddCookie(options =>
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
         }
 

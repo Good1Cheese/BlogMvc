@@ -1,29 +1,41 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestBlog2.Models;
+using BlogMvc.Models;
 
-namespace TestBlog2.Data
+namespace BlogMvc.Data
 {
     public class AppContext : DbContext
     {
         public AppContext(DbContextOptions<AppContext> options)
             : base(options)
         {
-    //        Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Role> Roles { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            // добавялем роли
+            modelBuilder.Entity<Role>().HasData(
+                new Role[] {
+                    new Role { Id = 1, Name = "admin" },
+                    new Role { Id = 2, Name = "user" }
+                });
+
+            // добавялем юзеров
             modelBuilder.Entity<User>().HasData(
                 new User[]
                 {
                     new User { Id = 1,Name="Dr.Bright", Image="Test img", Email="test@gmail.com", Password = "123"},
                     new User { Id = 2,Name="Maks", Image="Test imgAv", Email="lox.com", Password = "123"},
+                    new User { Id = 3, Name="Pasha", Email = "admin@mail.ru", Password = "123456", RoleId = 1 }
                 });
+
+            // добавялем категории
             modelBuilder.Entity<Category>().HasData(
                 new Category[]
                 {
@@ -31,6 +43,8 @@ namespace TestBlog2.Data
                     new Category { Id=2, Title="Coding"},
                     new Category { Id=3, Title="Maks lox"}
                 });
+
+            // добавялем посты
             modelBuilder.Entity<Post>().HasData(
                 new Post[]
                 {
@@ -50,6 +64,8 @@ namespace TestBlog2.Data
                     new Post { Id=14, Title="Serios Sam. What is this?", Text = "Lorem Ipsum", Image="Idi naxoy", UserId=1, CategoryId=3},
                     new Post { Id=15, Title="Test name", Text = "Lorem Ipsum", Image="Idi naxoy", UserId=1, CategoryId=3}
                 });
+
+            // добавялем комментарии
             modelBuilder.Entity<Comment>().HasData(
                 new Comment[]
                 {

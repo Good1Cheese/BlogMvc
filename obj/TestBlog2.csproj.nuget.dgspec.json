@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\79142\\source\\repos\\TestBlog2\\TestBlog2.csproj",
-        "projectName": "TestBlog2",
+        "projectName": "BlogMvc",
         "projectPath": "C:\\Users\\79142\\source\\repos\\TestBlog2\\TestBlog2.csproj",
         "packagesPath": "C:\\Users\\79142\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\79142\\source\\repos\\TestBlog2\\obj\\",

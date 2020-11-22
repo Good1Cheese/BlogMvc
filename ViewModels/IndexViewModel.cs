@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TestBlog2.Models;
+using BlogMvc.Models;
 
-namespace TestBlog2.ViewModels
+namespace BlogMvc.ViewModels
 {
     public class IndexViewModel
     {

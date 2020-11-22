@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TestBlog2</AssemblyName>
-    <RootNamespace>TestBlog2</RootNamespace>
+    <AssemblyName>BlogMvc</AssemblyName>
+    <RootNamespace>BlogMvc</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

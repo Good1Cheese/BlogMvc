@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
-using TestBlog2.Models;
-using TestBlog2.ViewModels;
+using BlogMvc.Models;
+using BlogMvc.ViewModels;
 
-namespace TestBlog2.TagHelpers
+namespace BlogMvc.TagHelpers
 {
     public class PageLinkTagHelper : TagHelper
     {
@@ -31,6 +31,7 @@ namespace TestBlog2.TagHelpers
             TagBuilder tag = new TagBuilder("ul");
             tag.AddCssClass("pagination");
 
+
             // формируем три ссылки - на текущую, предыдущую и следующую
             TagBuilder currentItem = CreateTag(PageModel.CategoryId, PageModel.PageNumber, urlHelper);
 
@@ -46,11 +47,6 @@ namespace TestBlog2.TagHelpers
             if (PageModel.HasNextPage)
             {
                 TagBuilder nextItem = CreateTag(PageModel.CategoryId, PageModel.PageNumber + 1, urlHelper);
-                tag.InnerHtml.AppendHtml(nextItem);
-            }
-            if (PageModel.HasNextNextPage)
-            {
-                TagBuilder nextItem = CreateTag(PageModel.CategoryId, PageModel.PageNumber + 2, urlHelper);
                 tag.InnerHtml.AppendHtml(nextItem);
             }
             output.Content.AppendHtml(tag);

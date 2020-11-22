@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TestBlog2.Views.Home.Components.Sidebar
+namespace BlogMvc.Views.Home.Components.Sidebar
 {
     public class defaultModel : PageModel
     {

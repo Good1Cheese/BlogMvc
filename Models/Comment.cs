@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestBlog2.Models
+namespace BlogMvc.Models
 {
     public class Comment
     {

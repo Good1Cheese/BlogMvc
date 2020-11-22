@@ -8,16 +8,16 @@
     <div class="sb-widget">
         <h2 class="sb-title">Categories</h2>
         <ul class="sb-cata-list">
-            @foreach (var Categories in ViewBag.Categories)
+            @foreach (Category Categories in ViewBag.Categories)
              {
-                <li><a asp-action="categorysingle" asp-route-id="@Categories.Id" asp-controller="home">@Categories.Title</a></li>
+                <li><a asp-action="singleCategory" asp-route-id="@Categories.Id" asp-controller="home">@Categories.Title<span>@Categories.Posts.Count</span></a></li>
              }
         </ul>
     </div>
     <div class="sb-widget">
         <h2 class="sb-title">Latest News</h2>
         <div class="latest-news-widget">
-            @foreach (var Post in Model)
+            @foreach (Post Post in Model)
              {
                 <div class="ln-item">
                     <img src="~/img/blog-thumbs/@Post.Image" alt="">
@@ -26,7 +26,7 @@
                         <a asp-action="single" asp-route-id="@Post.Id" asp-controller="home"><h6>@Post.Title</h6></a>
                         <div class="ln-metas">
                             <div class="ln-meta">By <a asp-action="user" asp-route-id="@Post.User.Id" asp-controller="account">@Post.User.Name</a></div>
-                            <div class="ln-meta">in <a asp-action="categorysingle" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title</a></div>
+                            <div class="ln-meta">in <a asp-action="singleCategory" asp-route-id="@Post.CategoryId" asp-controller="home">@Post.Category.Title</a></div>
                             <div class="ln-meta">@Post.Comments.Count</div>
                         </div>
                     </div>

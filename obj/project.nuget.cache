@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C2fZJ+l0wu0Lvm/6l3TGz6Kk3alLPWIeaPyQoHGjq63ej0xITPfMLoktBOqmtnaiFsiAT3M0X2QNVCueZLw/QA==",
+  "dgSpecHash": "iVlYdQVVmfRN77Mvq7CE+2u55sXvlWlcmfQuHwF3vXUyzp0wMQW8UGAtzRzuQs7t3VtvTRPYgr2XzPjYJm0W7Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\79142\\source\\repos\\TestBlog2\\TestBlog2.csproj",
+  "projectFilePath": "C:\\Users\\79142\\source\\repos\\TestBlog2\\BlogMvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\79142\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\79142\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

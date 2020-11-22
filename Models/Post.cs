@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TestBlog2.Models
+namespace BlogMvc.Models
 {
     public class Post
     {
